@@ -1,5 +1,4 @@
 import './style.css'
-import { useSound } from 'use-sound';
 import { useState } from 'react';
 import {Howl, Howler} from 'howler';
 

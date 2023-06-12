@@ -1,9 +1,11 @@
 import * as THREE from 'three'
-import { OrbitControls, Html, SpotLight, Sparkles, PerformanceMonitor, Text, Float, Environment, Center, Stage } from '@react-three/drei'
+import { PivotControls, OrbitControls, Html, SpotLight, Sparkles, PerformanceMonitor, Text, Float, Environment, Center, Stage } from '@react-three/drei'
 import { Lightformers } from './Lightformers'
 import { useState, useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import { Vector3 } from 'three'
+import { Piano } from './Piano'
+import { Player } from './Player'
 import { useControls } from 'leva'
 import { Perf } from 'r3f-perf'
 
@@ -29,7 +31,7 @@ export default function Experience()
         <Perf position="bottom-left" />    
         <color attach="background" />
 
-        {/* <OrbitControls
+        <OrbitControls
             enablePan={false}
             enableZoom={true}
             minDistance={6}
@@ -38,7 +40,7 @@ export default function Experience()
             maxPolarAngle={Math.PI/2}
             dampingFactor={0.03}
             enableDamping
-        /> */}
+        />
 
         <Stage/>
         {/* <fog attach="fog" color={fogColor} near={1} far={fogFar} /> */}
@@ -74,6 +76,17 @@ export default function Experience()
         </mesh>
         
         <Center>
+            <PivotControls>
+            <Piano 
+                scale={0.5}
+                rotation-y={-1}
+            />
+            <Player
+                scale={1.9}
+                position={[-1.2,0.15,0.9]}
+                rotation-y={2}
+            />
+            </PivotControls>
         </Center>
         
         <PerformanceMonitor onDecline={() => degrade(true)} />
