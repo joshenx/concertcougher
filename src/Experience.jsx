@@ -97,19 +97,19 @@ export default function Experience()
                 font="./Inter-Bold.ttf"
                 letterSpacing={ -0.1 }
                 fontSize={ 1 }
-                position={ [1, 1, -2 ] }
+                position={ [5, 3, -2 ] }
                 maxWidth={ 3 }
             >
-                JOSHEN
+                CONCERT COUGHER
             </Text>
             <Text
                 font="./Inter-Light.ttf"
-                letterSpacing={ 0.2 }
-                fontSize={ 0.4 }
-                position={ [1, 0.3, -2 ] }
-                maxWidth={ 1 }
+                letterSpacing={ 0 }
+                fontSize={ 0.3 }
+                position={ [5, 1.5, -2 ] }
+                maxWidth={ 6 }
             >
-                PORTFOLIO
+                You know you have to do it.
             </Text>
         </Float>
     </>
