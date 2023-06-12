@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+
+html,
+body,
+#root
+{
+    font-family: 'Inter', sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    overflow: hidden;
+}
+
+canvas
+{
+    touch-action: none;
+}
+
+.htmlScreen iframe
+{
+    width: 1024px;
+    height: 670px;
+    border: none;
+    border-radius: 20px;
+    background: transparent;
+}
+
+.annotation {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    transition: all 0.5s ease-in-out;
+    box-shadow: inset 0 0 0 0.09px black;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    font-size: 19px;
+    background: #fcfcfc;
+    color: #222222;
+    width: 80px;
+    height: 25px;
+    letter-spacing: -2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .annotation:hover {
+    box-shadow: inset 250px 0 0 0 rgb(0, 0, 0);
+    color: #fcfcfc;
+  }
+
+  .loader {
+    text-align: center;
+    position: fixed;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    color: #fcfcfc;
+  }
+
+  .welcome-text {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    opacity: 40%;
+    font-weight: 200;
+    color: #fcfcfc;
+    position: fixed;
+    left: 50%;
+    bottom: 4%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+
+  .cough-action {
+    font-family: 'Inter', sans-serif;
+    border-style: none;
+    border-radius: 10px;
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+    font-size: xx-large;
+    opacity: 60%;
+    font-weight: 600;
+    color: #222222;
+    position: fixed;
+    left: 50%;
+    bottom: 8%;
+    transform: translate(-50%, -50%);
+    margin: 1rem auto;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .play-button {
+    font-family: 'Inter', sans-serif;
+    border-style: none;
+    border-radius: 10px;
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+    font-size: medium;
+    opacity: 60%;
+    font-weight: 600;
+    color: #222222;
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    margin: 1rem auto;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
