@@ -1,20 +1,9 @@
 import './style.css'
 import { useState } from 'react';
-import {Howl, Howler} from 'howler';
 
-export default function MusicPlayer() {
-    var sound = new Howl({
-        src: ['sounds/chopin.mp3'],
-        volume: 0.5,
-      });
-
-    const musicHandler = () => {
-        //setPlaybackRate(playbackRate + 0.1);
-        sound.stop();
-        sound.play();
-    };
+export default function MusicPlayer(props) {
 
     return (
-        <button className="play-button" onClick={musicHandler}>PLAY</button>
+        <button className="play-button" onClick={props.playHandler}>PLAY</button>
     );
 }

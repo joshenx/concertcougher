@@ -11,22 +11,17 @@ export function Player(props) {
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
-    actions?.playing.play();
-  })
+    console.log(actions.playing)
+    if (props.isPlaying) {
+      actions?.playing.play()
+    } else {
+      actions?.playing.reset();
+    }
+  }, [props.isPlaying])
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
-        <group
-          name="Light"
-          position={[4.08, 5.9, -1.01]}
-          rotation={[1.89, 0.88, -2.05]}
-        />
-        <group
-          name="Camera"
-          position={[7.36, 4.96, 6.93]}
-          rotation={[1.24, 0.33, -0.76]}
-        />
         <group
           name="CharacterArmature"
           position={[0.11, -0.42, 0.26]}
