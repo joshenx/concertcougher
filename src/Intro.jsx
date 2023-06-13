@@ -12,7 +12,7 @@ export default function Intro({ children }) {
   return (
     <>
         <Suspense fallback={<Ready setReady={setReady} />}>
-            {cloneElement(children, { ready: clicked && ready })}
+            {cloneElement(children, { ready: clicked && ready, clicked: clicked })}
         </Suspense>
         <div className={`fullscreen bg ${ready ? 'ready' : 'notready'} ${clicked && 'clicked'}`}>
             <div className="stack">

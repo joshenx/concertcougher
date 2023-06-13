@@ -7,7 +7,7 @@ import Loader from './Loader.jsx'
 import { Suspense, useState, useRef } from 'react'
 import ReactHowler from 'react-howler';
 
-export default function App(props) {
+export default function App({ready, clicked}) {
 
     var coughSfx = new Howl({
         src: ['sounds/cough.mp3'],
@@ -52,7 +52,8 @@ export default function App(props) {
                 position: [ -1, 1.5, 7 ]
             } }
         >
-            <Experience 
+            <Experience
+                clicked={clicked}
                 isPlaying={isPlaying}/>
         </Canvas>
         <div className="welcome-text">Wait for the right moment..</div>

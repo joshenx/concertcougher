@@ -11,7 +11,7 @@ import { Perf } from 'r3f-perf'
 
 const LIGHT_HEIGHT = 2;
 
-export default function Experience(props)
+export default function Experience({clicked, isPlaying, ...props})
 {
     // const { minDistance, maxDistance, minPolarAngle, maxPolarAngle } = useControls('Zoom Limits', {
     //     minDistance: { value: 6, min: 0, max: 15 },
@@ -36,7 +36,13 @@ export default function Experience(props)
             enableDamping
         />
 
-        <Center>
+        <Stage
+            preset="portrait"
+            adjustCamera
+            intensity={0.5}
+            shadows={{type:'contact', offset:-1, size: 256}}
+            environment="warehouse"
+        >
             <PivotControls>
             <Piano 
                 castShadow receiveShadow
@@ -49,10 +55,11 @@ export default function Experience(props)
                 scale={1.9}
                 position={[-1.2,0.15,0.9]}
                 rotation-y={2}
-                isPlaying={props.isPlaying}
+                isPlaying={isPlaying}
+                clicked={clicked}
             />
             </PivotControls>
-        </Center>
+        </Stage>
         
         <Float rotationIntensity={ 0.4 } position-y = { 1 } rotation-x ={ -0.3 } > 
             <Text
