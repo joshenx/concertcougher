@@ -19,11 +19,6 @@ export default function Experience(props)
     //     minPolarAngle: { value: Math.PI/4, min: 0, max: Math.PI*2 },
     //     maxPolarAngle: { value: Math.PI/2, min: 0, max: Math.PI*2 },
     // })
-    const eventHandler = (event) =>{
-        setNewPointLightPos(new Vector3(event.point.x, LIGHT_HEIGHT, event.point.z));
-        event.stopPropagation();
-    }
-
     const [degraded, degrade] = useState(false);
 
     return <>    
@@ -45,10 +40,12 @@ export default function Experience(props)
             <PivotControls>
             <Piano 
                 castShadow receiveShadow
+                position-y={0}
                 scale={0.5}
                 rotation-y={-1}
             />
             <Player
+                castShadow
                 scale={1.9}
                 position={[-1.2,0.15,0.9]}
                 rotation-y={2}
@@ -56,29 +53,6 @@ export default function Experience(props)
             />
             </PivotControls>
         </Stage>
-        {/* <fog attach="fog" color={fogColor} near={1} far={fogFar} /> */}
-        
-        {/* LIGHTS */}
-        {/* <MovingSpot color="#ffffff" position={[-3, 5, 1]} /> */}
-
-        <ambientLight intensity={0.5} />
-        <directionalLight
-            intensity={2}
-            position={[10, 6, 6]}
-        >
-        </directionalLight>
-{/* 
-        <Sparkles
-            count={300}
-            speed={0.3}
-            size={3}
-            opacity={0.5}
-            position-y={4}
-            scale={[15, 10, 15]}
-        /> */}
-        {/* MESHES */}
-        
-        <PerformanceMonitor onDecline={() => degrade(true)} />
         
         <Float rotationIntensity={ 0.4 } position-y = { 1 } rotation-x ={ -0.3 } > 
             <Text
@@ -100,6 +74,8 @@ export default function Experience(props)
                 You know you have to do it.
             </Text>
         </Float>
+        
+        <PerformanceMonitor onDecline={() => degrade(true)} />
     </>
 }
 

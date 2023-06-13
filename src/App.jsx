@@ -7,7 +7,7 @@ import Loader from './Loader.jsx'
 import { Suspense, useState, useRef } from 'react'
 import ReactHowler from 'react-howler';
 
-export default function App(props) {
+export default function App(ready) {
 
     var coughSfx = new Howl({
         src: ['sounds/cough.mp3'],
@@ -37,33 +37,31 @@ export default function App(props) {
     
     return (
         <>
-        <Suspense fallback={<Loader />}>
-            <Canvas
-                dpr={[1, 2]}
-                style={{
-                    position: "fixed"
-                }}
-                gl={{ toneMappingExposure: 0.7 }}
-                shadows
-                camera={ {
-                    fov: 45,
-                    near: 0.1,
-                    far: 200,
-                    position: [ -1, 1.5, 7 ]
-                } }
-            >
-                <Experience 
-                    isPlaying={isPlaying}/>
-            </Canvas>
-        </Suspense>
+        <Canvas
+            dpr={[1, 2]}
+            style={{
+                position: "fixed"
+            }}
+            gl={{ toneMappingExposure: 0.7 }}
+            shadows
+            camera={ {
+                fov: 45,
+                near: 0.1,
+                far: 200,
+                position: [ -1, 1.5, 7 ]
+            } }
+        >
+            <Experience 
+                isPlaying={isPlaying}/>
+        </Canvas>
         <div className="welcome-text">Wait for the right moment..</div>
-        <ReactHowler
+        {/* <ReactHowler
             preload={true}
             src='sounds/chopin.mp3'
             playing={isPlaying}
             volume={0.5}
             ref={pianoPlayer}
-        />
+        /> */}
         <MusicPlayer playHandler={playHandler}/>
         <CoughButton coughHandler={coughHandler}/>
         </>
