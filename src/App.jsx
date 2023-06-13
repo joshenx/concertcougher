@@ -4,7 +4,7 @@ import Experience from './Experience.jsx'
 import CoughButton from './CoughButton'
 import MusicPlayer from './MusicPlayer'
 import Loader from './Loader.jsx'
-import { Suspense, useState, useRef } from 'react'
+import { Suspense, useState, useRef, useEffect } from 'react'
 import ReactHowler from 'react-howler';
 
 export default function App({ready, clicked}) {
@@ -35,6 +35,12 @@ export default function App({ready, clicked}) {
             setPlaying(true);
         }
     };
+
+    useEffect(() => {
+        if (clicked) {
+            setPlaying(true);
+        }
+    }, [clicked]);
     
     return (
         <>

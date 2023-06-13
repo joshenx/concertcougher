@@ -12,12 +12,14 @@ export function Player({clicked, isPlaying, ...props}) {
   const audio = useRef();
 
   const startPlaying = () => {
+    console.log("Player.jsx: audio playing..");
     audio.current.stop();
     audio.current.play();
     actions?.playing.play();
   }
 
   const stopPlaying = () => {
+    console.log("Player.jsx: audio stopping..");
     audio.current.stop();
     actions?.playing.stop();
   }
@@ -34,13 +36,6 @@ export function Player({clicked, isPlaying, ...props}) {
       stopPlaying();
     }
   }, [isPlaying])
-
-  // Autoplay when click enter
-  useEffect(() => {
-    if (clicked) {
-      startPlaying();
-    }
-  }, [clicked]);
 
   return (
     <group ref={group} {...props} dispose={null}>
