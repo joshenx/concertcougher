@@ -12,14 +12,17 @@ export function Player(props) {
   const audio = useRef();
 
   useEffect(() => {
-    if (audio.current) {
-      audio.current.stop();
-      audio.current.play();
+    console.log(`Player.jsx: playing is ${props.isPlaying}`)
+    if (!audio.current) {
+      return;
     }
 
     if (props.isPlaying) {
-      actions?.playing.play()
+      audio.current.stop();
+      audio.current.play();
+      actions?.playing.play();
     } else {
+      audio.current.stop();
       actions?.playing.stop();
     }
   }, [props.isPlaying])
@@ -32,15 +35,13 @@ export function Player(props) {
           position={[0.11, -0.42, 0.26]}
           rotation={[-0.21, 0.16, 0.15]}
         >
-          { props.isPlaying &&
-            <PositionalAudio
-              url="sounds/chopin.mp3"
-              distance={5}
-              loop
-              autoplay
-              ref={audio}
-            />
-          }
+          <PositionalAudio
+            url="sounds/chopin.mp3"
+            distance={5}
+            loop
+            autoplay
+            ref={audio}
+          />
           
           <primitive object={nodes.Hips} />
           <skinnedMesh

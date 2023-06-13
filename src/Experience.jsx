@@ -36,7 +36,7 @@ export default function Experience(props)
             enableDamping
         />
 
-        <Stage adjustCamera intensity={0.5} shadows="contact" environment="city">
+        <Center>
             <PivotControls>
             <Piano 
                 castShadow receiveShadow
@@ -52,7 +52,7 @@ export default function Experience(props)
                 isPlaying={props.isPlaying}
             />
             </PivotControls>
-        </Stage>
+        </Center>
         
         <Float rotationIntensity={ 0.4 } position-y = { 1 } rotation-x ={ -0.3 } > 
             <Text

@@ -7,7 +7,7 @@ import Loader from './Loader.jsx'
 import { Suspense, useState, useRef } from 'react'
 import ReactHowler from 'react-howler';
 
-export default function App(ready) {
+export default function App(props) {
 
     var coughSfx = new Howl({
         src: ['sounds/cough.mp3'],
@@ -27,6 +27,7 @@ export default function App(ready) {
     
     const [isPlaying, setPlaying] = useState(false);
     const playHandler = () => {
+        console.log(`App.jsx: playing was ${isPlaying}`);
         if (isPlaying) {
             //pianoPlayer.current.howler.stop();
             setPlaying(false);
