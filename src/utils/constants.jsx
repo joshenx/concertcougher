@@ -17,7 +17,7 @@ export const coughValues = [
   },
   {
     src: "sounds/ringtone.mp3",
-    weight: 0.001,
+    weight: 0.01,
   },
   {
     src: "sounds/femalecough1.mp3",
