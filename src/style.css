@@ -60,6 +60,7 @@ canvas
   background-image: url("./images/bg_mobile.png");
   background-position: center;
   background-size: cover;
+  z-index: 10;
 }
 
 /* For larger screens */
@@ -119,6 +120,7 @@ canvas
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.3s;
+  z-index: 5;
 }
 
 .play-button {

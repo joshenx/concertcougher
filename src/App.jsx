@@ -75,7 +75,7 @@ export default function App({ ready, clicked }) {
         /> */}
       <MusicPlayer text={playerText} playHandler={playHandler} />
       <CoughButton coughHandler={coughHandler} />
-      <Overlay />
+      <Overlay clicked={clicked} />
       <Footer />
     </>
   );
