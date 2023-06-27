@@ -11,21 +11,86 @@ import Overlay from "./Overlay.jsx";
 
 export default function App({ ready, clicked }) {
   const [playerText, setPlayerText] = useState("STOP");
-
-  var coughSfx = new Howl({
-    src: ["sounds/cough.mp3"],
-    volume: 0.5,
-  });
-
+  const [shushChance, setShushChance] = useState(0.05);
   // var pianoSfx = new Howl({
   //     src: ['sounds/chopin.mp3'],
   //     volume: 0.5,
   // });
 
+  let coughValues = [
+    {
+      src: "sounds/coughquick.mp3",
+      weight: 0.3,
+    },
+    {
+      src: "sounds/coughrare.mp3",
+      weight: 0.05,
+    },
+    {
+      src: "sounds/cough.mp3",
+      weight: 0.3,
+    },
+    {
+      src: "sounds/ringtone.mp3",
+      weight: 0.01,
+    },
+  ];
+
+  let shushValues = [
+    {
+      src: "sounds/shushshort.mp3",
+      weight: 0.5,
+    },
+    {
+      src: "sounds/shushlong.mp3",
+      weight: 0.5,
+    },
+  ];
+
+  const weightedRandom = (options) => {
+    var i;
+
+    var weights = [options[0].weight];
+
+    for (i = 1; i < options.length; i++)
+      weights[i] = options[i].weight + weights[i - 1];
+
+    var random = Math.random() * weights[weights.length - 1];
+
+    for (i = 0; i < weights.length; i++) if (weights[i] > random) break;
+
+    return options[i].src;
+  };
+
   const pianoPlayer = useRef(null);
 
   const coughHandler = () => {
+    console.log("App.jsx: cough fired!");
+    var coughSrc = weightedRandom(coughValues);
+    var coughSfx = new Howl({
+      src: [coughSrc],
+      volume: Math.random() * 0.5 + 0.5,
+    });
+
     coughSfx.play();
+
+    if (Math.random() * 5 < shushChance) {
+      console.log(`App.jsx: shush fired!`);
+      var shushSrc = weightedRandom(shushValues);
+      var shushSfx = new Howl({
+        src: [shushSrc],
+        volume: shushChance / 2,
+      });
+
+      setTimeout(() => {
+        shushSfx.play();
+      }, 1000);
+
+      setShushChance(0.05);
+    } else {
+      console.log(`App.jsx: Shush chance currently ${shushChance}`);
+      setShushChance(shushChance * 2);
+    }
   };
 
   const [isPlaying, setPlaying] = useState(false);
