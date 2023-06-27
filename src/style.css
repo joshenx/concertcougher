@@ -57,7 +57,7 @@ canvas
 }
 
 .bg {
-  background-image: url("./images/bg_mobile.png");
+  background-image: url("/images/bg_mobile.png");
   background-position: center;
   background-size: cover;
   z-index: 10;
@@ -66,13 +66,13 @@ canvas
 /* For larger screens */
 @media only screen and (min-width: 600px) {
   .bg {
-    background-image: url("./images/bg_tablet.png");
+    background-image: url("/images/bg_tablet.png");
   }
 }
 
 @media only screen and (min-width: 740px) {
   .bg {
-    background-image: url("./images/bg.png");
+    background-image: url("/images/bg.png");
   }
 }
 
