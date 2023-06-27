@@ -6,6 +6,7 @@ import MusicPlayer from './MusicPlayer'
 import Loader from './Loader.jsx'
 import { Suspense, useState, useRef, useEffect } from 'react'
 import ReactHowler from 'react-howler';
+import Footer from './Footer.jsx'
 
 export default function App({ready, clicked}) {
     const [playerText, setPlayerText] = useState("STOP");
@@ -75,6 +76,7 @@ export default function App({ready, clicked}) {
         /> */}
         <MusicPlayer text={playerText} playHandler={playHandler}/>
         <CoughButton coughHandler={coughHandler}/>
+        <Footer />
         </>
     );
 }

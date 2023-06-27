@@ -27,6 +27,7 @@
     "react": "18.2",
     "react-dom": "18.2",
     "react-howler": "^5.2.0",
+    "react-icons": "^4.10.1",
     "three": "^0.148.0",
     "vercel": "^29.4.0"
   }

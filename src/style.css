@@ -104,7 +104,7 @@ canvas
   font-family: 'Inter', sans-serif;
   border-style: none;
   border-radius: 10px;
-  padding: 1rem 2rem;
+  padding: 0.5rem 1.5rem;
   text-align: center;
   font-size: xx-large;
   opacity: 60%;
@@ -113,9 +113,9 @@ canvas
   color: white;
   position: fixed;
   left: 50%;
-  width: 240px;
-  margin-left: -120px;
-  bottom: 8%;
+  width: 200px;
+  margin-left: -100px;
+  bottom: 4.5rem;
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.3s;
