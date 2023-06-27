@@ -1,4 +1,5 @@
 import { Suspense, cloneElement, useEffect, useState } from 'react'
+import { Link } from '@chakra-ui/react'
 // import { Footer } from '@pmndrs/branding'
 
 function Ready({ setReady }) {
@@ -16,9 +17,9 @@ export default function Intro({ children }) {
         </Suspense>
         <div className={`fullscreen bg ${ready ? 'ready' : 'notready'} ${clicked && 'clicked'}`}>
             <div className="stack">
-                <a href="#" onClick={() => setClicked(true)}>
+                <Link sx={{ marginX: '20vw', display: 'inline-block', textAlign: 'center', mt: '40vh' }} href="#" onClick={() => setClicked(true)}>
                     {!ready ? 'Loading...' : 'This experience requires audio. Click to proceed.'}
-                </a>
+                </Link>
             </div>
             {/* <Footer
             date="30. December"

@@ -76,7 +76,7 @@ export default function Experience({clicked, isPlaying, ...props})
                 font="./Inter-Bold.ttf"
                 letterSpacing={ -0.1 }
                 fontSize={ 1 }
-                position={ [0.75, 5, 0 ] }
+                position={ [0.1, 5, 0 ] }
                 maxWidth={ 3 }
             >
                 CONCERT COUGHER
@@ -85,7 +85,7 @@ export default function Experience({clicked, isPlaying, ...props})
                 font="./Inter-Light.ttf"
                 letterSpacing={ 0 }
                 fontSize={ 0.3 }
-                position={ [0.75, 3.5, 0 ] }
+                position={ [0.1, 3.5, 0 ] }
                 maxWidth={ 6 }
             >
                 You know you have to do it.

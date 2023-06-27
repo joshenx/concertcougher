@@ -32,7 +32,7 @@ a:hover {
 
 canvas
 {
-    touch-action: none;
+  touch-action: none;
 }
 
 .htmlScreen iframe
@@ -57,7 +57,22 @@ canvas
 }
 
 .bg {
-  background: linear-gradient(to top, #0a0a0a, #181a1a, #1d1d1f);
+  background-image: url("./images/bg_mobile.png");
+  background-position: center;
+  background-size: cover;
+}
+
+/* For larger screens */
+@media only screen and (min-width: 600px) {
+  .bg {
+    background-image: url("./images/bg_tablet.png");
+  }
+}
+
+@media only screen and (min-width: 740px) {
+  .bg {
+    background-image: url("./images/bg.png");
+  }
 }
 
 .notready {
@@ -67,16 +82,6 @@ canvas
 .clicked {
   pointer-events: none;
   opacity: 0;
-}
-
-.loader {
-  text-align: center;
-  position: fixed;
-  left: 50%;
-  bottom: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
-  color: #fcfcfc;
 }
 
 .welcome-text {
@@ -108,7 +113,8 @@ canvas
   color: white;
   position: fixed;
   left: 50%;
-  margin-left: -60px;
+  width: 240px;
+  margin-left: -120px;
   bottom: 8%;
   text-transform: uppercase;
   cursor: pointer;

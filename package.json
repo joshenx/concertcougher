@@ -13,9 +13,13 @@
     "vite": "^4.0.4"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.7.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@react-three/drei": "^9.50.3",
     "@react-three/fiber": "^8.9.2",
     "@react-three/postprocessing": "^2.10.0",
+    "framer-motion": "^10.12.17",
     "howler": "^2.2.3",
     "lamina": "^1.1.23",
     "leva": "^0.9.34",
