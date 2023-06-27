@@ -99,19 +99,20 @@ canvas
   font-family: 'Inter', sans-serif;
   border-style: none;
   border-radius: 10px;
-  padding: 0.5rem 1.5rem;
+  padding: 1rem 2rem;
   text-align: center;
   font-size: xx-large;
   opacity: 60%;
   font-weight: 600;
-  color: #222222;
+  background: rgba(255,0,0,0.6);
+  color: white;
   position: fixed;
   left: 50%;
+  margin-left: -60px;
   bottom: 8%;
-  transform: translate(-50%, -50%);
-  margin: 1rem auto;
   text-transform: uppercase;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .play-button {
@@ -130,4 +131,18 @@ canvas
   margin: 1rem auto;
   text-transform: uppercase;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: translate(0, -5px);
+  background: red;
+  color: white;
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
+}
+
+button:active {
+  transition: 0.01s;
+  transform: translate(0, -3px);
+  background: rgb(100, 0, 0);
 }
