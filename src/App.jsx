@@ -58,14 +58,14 @@ export default function App({ready, clicked}) {
                 fov: 45,
                 near: 0.1,
                 far: 200,
-                position: [ 6, 1.5, 15 ]
+                position: [ 20, 3, 3 ]
             } }
         >
             <Experience
                 clicked={clicked}
                 isPlaying={isPlaying}/>
         </Canvas>
-        <div className="welcome-text">Wait for the right moment..</div>
+        {/* <div className="welcome-text">Wait for the right moment..</div> */}
         {/* <ReactHowler
             preload={true}
             src='sounds/chopin.mp3'

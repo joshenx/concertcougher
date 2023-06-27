@@ -1,5 +1,21 @@
 import * as THREE from 'three'
-import { Backdrop, PresentationControls, PivotControls, OrbitControls, Html, SpotLight, Sparkles, PerformanceMonitor, Text, Float, Stage, Center, PositionalAudio, Environment } from '@react-three/drei'
+import {
+    useTexture,
+    useGLTF,
+    Backdrop,
+    PresentationControls,
+    OrbitControls,
+    Html,
+    SpotLight,
+    Sparkles,
+    PerformanceMonitor,
+    Text,
+    Float,
+    Stage,
+    Center,
+    PositionalAudio,
+    Environment
+} from '@react-three/drei'
 import { Lightformers } from './Lightformers'
 import { useState, useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
@@ -8,23 +24,18 @@ import { Piano } from './Piano'
 import { Player } from './Player'
 import { useControls } from 'leva'
 import { Perf } from 'r3f-perf'
+import { Hall } from './Hall'
+import { Seat } from './Seat'
 
 const LIGHT_HEIGHT = 2;
 
 export default function Experience({clicked, isPlaying, ...props})
 {
-    // const { minDistance, maxDistance, minPolarAngle, maxPolarAngle } = useControls('Zoom Limits', {
-    //     minDistance: { value: 6, min: 0, max: 15 },
-    //     maxDistance: { value: 14, min: 0, max: 500 },
-    //     minPolarAngle: { value: Math.PI/4, min: 0, max: Math.PI*2 },
-    //     maxPolarAngle: { value: Math.PI/2, min: 0, max: Math.PI*2 },
-    // })
     const [degraded, degrade] = useState(false);
 
-    return <>    
-        <Perf position="bottom-left" />    
+    return <> 
+        {/* <Perf position="bottom-left" />     */}
         <color attach="background" />
-
         <Environment files="potsdamer_platz_2k.hdr" />
         <PresentationControls
         enabled={true} // the controls can be disabled by setting this to false
@@ -38,29 +49,34 @@ export default function Experience({clicked, isPlaying, ...props})
         azimuth={[-Math.PI/16, Math.PI/16]} // Horizontal limits
         config={{ mass: 1, tension: 100, friction: 26 }} // Spring config</>
         >
-        <Center>
-        <Piano 
-            castShadow receiveShadow
-            position-y={0}
+        <Hall
+            position={[-1,-1,-1.7]}
             scale={0.5}
-            rotation-y={-1}
         />
+        
         <Player
             castShadow
-            scale={1.9}
-            position={[-1.2,0.15,0.9]}
-            rotation-y={2}
+            scale={2}
+            position={[0.1,-0.9,1.3]}
+            rotation-y={3}
             isPlaying={isPlaying}
             clicked={clicked}
         />
-        </Center>
-        </PresentationControls>
-        <Float rotationIntensity={ 0.4 } position-y = { 1 } rotation-x ={ -0.3 } > 
+        <Seat
+            position={[0, -1, -1.3]}
+            scale={0.53}
+        />
+        <Piano 
+            castShadow receiveShadow
+            position-y={-1}
+            scale={0.5}
+        />
+        <Float rotation-y={Math.PI/2} rotationIntensity={ 0.4 } position-y = { 0.3 } > 
             <Text
                 font="./Inter-Bold.ttf"
                 letterSpacing={ -0.1 }
                 fontSize={ 1 }
-                position={ [5, 3, -2 ] }
+                position={ [0.75, 5, 0 ] }
                 maxWidth={ 3 }
             >
                 CONCERT COUGHER
@@ -69,13 +85,14 @@ export default function Experience({clicked, isPlaying, ...props})
                 font="./Inter-Light.ttf"
                 letterSpacing={ 0 }
                 fontSize={ 0.3 }
-                position={ [5, 1.5, -2 ] }
+                position={ [0.75, 3.5, 0 ] }
                 maxWidth={ 6 }
             >
                 You know you have to do it.
             </Text>
         </Float>
         
+        </PresentationControls>
         <PerformanceMonitor onDecline={() => degrade(true)} />
     </>
 }
