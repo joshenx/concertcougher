@@ -24,9 +24,9 @@ export default function Overlay({ clicked, ...props }) {
       <AnimatePresence>
         {clicked && (
           <motion.div
-            initial={{ y: "100rem", opacity: 0 }}
+            initial={{ y: "150vh", opacity: 0 }}
             animate={{
-              y: "50rem",
+              y: "90vh",
               opacity: 1,
               transition: { type: "spring", duration: 2 },
             }}
@@ -53,9 +53,9 @@ export default function Overlay({ clicked, ...props }) {
       <AnimatePresence>
         {clicked && (
           <motion.div
-            initial={{ y: "100rem", opacity: 0 }}
+            initial={{ y: "150vh", opacity: 0 }}
             animate={{
-              y: "50rem",
+              y: "90vh",
               opacity: 1,
               transition: { type: "spring", duration: 1 },
             }}
