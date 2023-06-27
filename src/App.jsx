@@ -8,6 +8,7 @@ import { Suspense, useState, useRef, useEffect } from "react";
 import ReactHowler from "react-howler";
 import Footer from "./Footer.jsx";
 import Overlay from "./Overlay.jsx";
+import { Constants } from "./utils/constants";
 
 export default function App({ ready, clicked }) {
   const [playerText, setPlayerText] = useState("STOP");
@@ -16,60 +17,6 @@ export default function App({ ready, clicked }) {
   //     src: ['sounds/chopin.mp3'],
   //     volume: 0.5,
   // });
-
-  let coughValues = [
-    {
-      src: "sounds/coughquick.mp3",
-      weight: 0.1,
-    },
-    {
-      src: "sounds/coughrare.mp3",
-      weight: 0.05,
-    },
-    {
-      src: "sounds/cough1.mp3",
-      weight: 0.1,
-    },
-    {
-      src: "sounds/cough2.mp3",
-      weight: 0.1,
-    },
-    {
-      src: "sounds/ringtone.mp3",
-      weight: 0.001,
-    },
-    {
-      src: "sounds/femalecough1.mp3",
-      weight: 0.1,
-    },
-    {
-      src: "sounds/femalecough2.mp3",
-      weight: 0.1,
-    },
-    {
-      src: "sounds/femalecough3.mp3",
-      weight: 0.1,
-    },
-    {
-      src: "sounds/femalecoughquick.mp3",
-      weight: 0.1,
-    },
-    {
-      src: "sounds/femalecoughrare.mp3",
-      weight: 0.1,
-    },
-  ];
-
-  let shushValues = [
-    {
-      src: "sounds/shushshort.mp3",
-      weight: 0.5,
-    },
-    {
-      src: "sounds/shushlong.mp3",
-      weight: 0.5,
-    },
-  ];
 
   const weightedRandom = (options) => {
     var i;
@@ -90,7 +37,7 @@ export default function App({ ready, clicked }) {
 
   const coughHandler = () => {
     console.log("App.jsx: cough fired!");
-    var coughSrc = weightedRandom(coughValues);
+    var coughSrc = weightedRandom(Constants.coughValues);
     var coughSfx = new Howl({
       src: [coughSrc],
       volume: Math.random() * 0.5 + 0.5,
@@ -100,7 +47,7 @@ export default function App({ ready, clicked }) {
 
     if (Math.random() * 5 < shushChance) {
       console.log(`App.jsx: shush fired!`);
-      var shushSrc = weightedRandom(shushValues);
+      var shushSrc = weightedRandom(Constants.shushValues);
       var shushSfx = new Howl({
         src: [shushSrc],
         volume: shushChance / 2,
