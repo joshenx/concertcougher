@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { PivotControls, OrbitControls, Html, SpotLight, Sparkles, PerformanceMonitor, Text, Float, Stage, Center, PositionalAudio } from '@react-three/drei'
+import { Backdrop, PresentationControls, PivotControls, OrbitControls, Html, SpotLight, Sparkles, PerformanceMonitor, Text, Float, Stage, Center, PositionalAudio, Environment } from '@react-three/drei'
 import { Lightformers } from './Lightformers'
 import { useState, useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
@@ -25,42 +25,36 @@ export default function Experience({clicked, isPlaying, ...props})
         <Perf position="bottom-left" />    
         <color attach="background" />
 
-        <OrbitControls
-            enablePan={false}
-            enableZoom={true}
-            minDistance={6}
-            maxDistance={15}
-            minPolarAngle={Math.PI/3}
-            maxPolarAngle={Math.PI/2}
-            dampingFactor={0.03}
-            enableDamping
-        />
-
-        <Stage
-            preset="portrait"
-            adjustCamera
-            intensity={0.5}
-            shadows={{type:'contact', offset:-1, size: 256}}
-            environment="warehouse"
+        <Environment files="potsdamer_platz_2k.hdr" />
+        <PresentationControls
+        enabled={true} // the controls can be disabled by setting this to false
+        global={true} // Spin globally or by dragging the model
+        cursor={true} // Whether to toggle cursor style on drag
+        snap={true} // Snap-back to center (can also be a spring config)
+        speed={1} // Speed factor
+        zoom={0.5} // Zoom factor when half the polar-max is reached
+        rotation={[0, 0, 0]} // Default rotation
+        polar={[-0, 0]} // Vertical limits
+        azimuth={[-Math.PI/16, Math.PI/16]} // Horizontal limits
+        config={{ mass: 1, tension: 100, friction: 26 }} // Spring config</>
         >
-            <PivotControls>
-            <Piano 
-                castShadow receiveShadow
-                position-y={0}
-                scale={0.5}
-                rotation-y={-1}
-            />
-            <Player
-                castShadow
-                scale={1.9}
-                position={[-1.2,0.15,0.9]}
-                rotation-y={2}
-                isPlaying={isPlaying}
-                clicked={clicked}
-            />
-            </PivotControls>
-        </Stage>
-        
+        <Center>
+        <Piano 
+            castShadow receiveShadow
+            position-y={0}
+            scale={0.5}
+            rotation-y={-1}
+        />
+        <Player
+            castShadow
+            scale={1.9}
+            position={[-1.2,0.15,0.9]}
+            rotation-y={2}
+            isPlaying={isPlaying}
+            clicked={clicked}
+        />
+        </Center>
+        </PresentationControls>
         <Float rotationIntensity={ 0.4 } position-y = { 1 } rotation-x ={ -0.3 } > 
             <Text
                 font="./Inter-Bold.ttf"

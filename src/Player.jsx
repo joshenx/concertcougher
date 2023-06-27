@@ -47,7 +47,7 @@ export function Player({clicked, isPlaying, ...props}) {
         >
           <PositionalAudio
             url="sounds/chopin.mp3"
-            distance={5}
+            distance={20}
             loop
             autoplay
             ref={audio}

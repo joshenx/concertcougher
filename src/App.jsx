@@ -8,6 +8,7 @@ import { Suspense, useState, useRef, useEffect } from 'react'
 import ReactHowler from 'react-howler';
 
 export default function App({ready, clicked}) {
+    const [playerText, setPlayerText] = useState("STOP");
 
     var coughSfx = new Howl({
         src: ['sounds/cough.mp3'],
@@ -30,8 +31,10 @@ export default function App({ready, clicked}) {
         console.log(`App.jsx: playing was ${isPlaying}`);
         if (isPlaying) {
             //pianoPlayer.current.howler.stop();
+            setPlayerText("PLAY");
             setPlaying(false);
         } else {
+            setPlayerText("STOP");
             setPlaying(true);
         }
     };
@@ -55,7 +58,7 @@ export default function App({ready, clicked}) {
                 fov: 45,
                 near: 0.1,
                 far: 200,
-                position: [ -1, 1.5, 7 ]
+                position: [ 6, 1.5, 15 ]
             } }
         >
             <Experience
@@ -70,7 +73,7 @@ export default function App({ready, clicked}) {
             volume={0.5}
             ref={pianoPlayer}
         /> */}
-        <MusicPlayer playHandler={playHandler}/>
+        <MusicPlayer text={playerText} playHandler={playHandler}/>
         <CoughButton coughHandler={coughHandler}/>
         </>
     );
