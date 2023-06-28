@@ -14,8 +14,6 @@ export function Hall(props) {
   return (
     <group {...props} dispose={null}>
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Cube.geometry}
         material={nodes.Cube.material}
         position={[-28.357, -1.264, 0]}
@@ -24,8 +22,6 @@ export function Hall(props) {
         <meshBasicMaterial map={bakedTexture} />
       </mesh>
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Cube001.geometry}
         material={nodes.Cube001.material}
         position={[-31.524, 22.048, 0]}
@@ -34,8 +30,6 @@ export function Hall(props) {
         <meshBasicMaterial map={bakedTexture} />
       </mesh>
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Cube002.geometry}
         material={nodes.Cube002.material}
         position={[10.083, -3.81, 0]}
@@ -44,8 +38,6 @@ export function Hall(props) {
         <meshBasicMaterial map={bakedTexture} />
       </mesh>
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Cube003.geometry}
         material={nodes.Cube003.material}
         position={[-14.099, -1.715, 0]}
@@ -53,8 +45,6 @@ export function Hall(props) {
         <meshBasicMaterial map={bakedTexture} />
       </mesh>
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Cube004.geometry}
         material={nodes.Cube004.material}
         position={[44.146, -2.763, 0]}
@@ -62,8 +52,6 @@ export function Hall(props) {
         <meshBasicMaterial map={bakedTexture} />
       </mesh>
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Cube005.geometry}
         material={nodes.Cube005.material}
         position={[-14.099, -1.715, 0]}
@@ -71,8 +59,6 @@ export function Hall(props) {
         <meshBasicMaterial map={bakedTexture} />
       </mesh>
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Cube006.geometry}
         material={nodes.Cube006.material}
         position={[44.146, 44.32, 0]}
