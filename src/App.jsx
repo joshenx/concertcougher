@@ -40,6 +40,7 @@ export default function App({ ready, clicked }) {
     var coughSfx = new Howl({
       src: [coughSrc],
       volume: Math.random() * 0.5 + 0.5,
+      preload: true,
     });
 
     coughSfx.play();
@@ -50,6 +51,7 @@ export default function App({ ready, clicked }) {
       var shushSfx = new Howl({
         src: [shushSrc],
         volume: shushChance / 2,
+        preload: true,
       });
 
       setTimeout(() => {
