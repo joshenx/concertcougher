@@ -6,9 +6,8 @@ import MusicPlayer from "./MusicPlayer";
 import Loader from "./Loader.jsx";
 import { Suspense, useState, useRef, useEffect } from "react";
 import ReactHowler from "react-howler";
-import Footer from "./Footer.jsx";
 import Overlay from "./Overlay.jsx";
-import { Constants } from "./utils/constants";
+import { coughValues, shushValues } from "./utils/constants";
 
 export default function App({ ready, clicked }) {
   const [playerText, setPlayerText] = useState("STOP");
@@ -37,7 +36,7 @@ export default function App({ ready, clicked }) {
 
   const coughHandler = () => {
     console.log("App.jsx: cough fired!");
-    var coughSrc = weightedRandom(Constants.coughValues);
+    var coughSrc = weightedRandom(coughValues);
     var coughSfx = new Howl({
       src: [coughSrc],
       volume: Math.random() * 0.5 + 0.5,
@@ -47,7 +46,7 @@ export default function App({ ready, clicked }) {
 
     if (Math.random() * 5 < shushChance) {
       console.log(`App.jsx: shush fired!`);
-      var shushSrc = weightedRandom(Constants.shushValues);
+      var shushSrc = weightedRandom(shushValues);
       var shushSfx = new Howl({
         src: [shushSrc],
         volume: shushChance / 2,
@@ -112,7 +111,6 @@ export default function App({ ready, clicked }) {
       <MusicPlayer text={playerText} playHandler={playHandler} />
       <CoughButton coughHandler={coughHandler} />
       <Overlay clicked={clicked} />
-      <Footer />
     </>
   );
 }

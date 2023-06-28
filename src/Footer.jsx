@@ -13,7 +13,7 @@ export default function Footer({ ...props }) {
           bottom: "0",
           transform: "translateX(-50%)",
           paddingBottom: "1.5rem",
-          zIndex: "2",
+          zIndex: "11",
         }}
         spacing={20}
         variant="ghost"

@@ -1,33 +1,48 @@
-import { Suspense, cloneElement, useEffect, useState } from 'react'
-import { Link } from '@chakra-ui/react'
-// import { Footer } from '@pmndrs/branding'
+import { Suspense, cloneElement, useEffect, useState } from "react";
+import { Link } from "@chakra-ui/react";
+import { Box, VStack, Spinner, Collapse } from "@chakra-ui/react";
+import Footer from "./Footer";
 
 function Ready({ setReady }) {
-  useEffect(() => () => void setReady(true), [])
-  return null
+  useEffect(() => () => void setReady(true), []);
+  return null;
 }
 
 export default function Intro({ children }) {
-  const [clicked, setClicked] = useState(false)
-  const [ready, setReady] = useState(false)
+  const [clicked, setClicked] = useState(false);
+  const [ready, setReady] = useState(false);
   return (
     <>
-        <Suspense fallback={<Ready setReady={setReady} />}>
-            {cloneElement(children, { ready: clicked && ready, clicked: clicked })}
-        </Suspense>
-        <div className={`fullscreen bg ${ready ? 'ready' : 'notready'} ${clicked && 'clicked'}`}>
-            <div className="stack">
-                <Link sx={{ marginX: '20vw', display: 'inline-block', textAlign: 'center', mt: '40vh' }} href="#" onClick={() => setClicked(true)}>
-                    {!ready ? 'Loading...' : 'This experience requires audio. Click to proceed.'}
-                </Link>
-            </div>
-            {/* <Footer
-            date="30. December"
-            year="2021"
-            link1={<a href="https://github.com/pmndrs/drei">pmndrs/drei</a>}
-            link2={<a href="https://codesandbox.io/s/e6bjz">s/e6bjz</a>}
-            /> */}
-        </div>
+      <Suspense fallback={<Ready setReady={setReady} />}>
+        {cloneElement(children, { ready: clicked && ready, clicked: clicked })}
+      </Suspense>
+
+      <Box
+        className={`fullscreen bg ${ready ? "ready" : "notready"} ${
+          clicked && "clicked"
+        }`}
+      >
+        <VStack mt="40vh">
+          <Collapse in={!ready}>
+            <Spinner boxSize={36} size="xl" />
+          </Collapse>
+          <Link
+            sx={{
+              marginX: "20vw",
+              display: "inline-block",
+              textAlign: "center",
+              mt: "2rem",
+            }}
+            href="#"
+            onClick={() => setClicked(true)}
+          >
+            {!ready
+              ? "Loading..."
+              : "This experience will begin with audio. Click to proceed."}
+          </Link>
+        </VStack>
+      </Box>
+      <Footer />
     </>
-  )
+  );
 }
