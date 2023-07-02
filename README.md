@@ -34,12 +34,23 @@
   <p align="center">
     relive every soloist's and audience member's biggest pet peeve over and over again
     <br />
+    <i>270K views on reddit!</i>
+    <br /><br />
+    <b>"The most pointless thing I have ever seen. Love it."</b><br />-/u/wrapped_in_clingfilm
+    <br />
+    <br />
+    <b>"is there a word that combines stupid, pointless, genius, and beautiful all at the same time?"</b><br />-/u/Brodman_area11
+    <br />
+    <br />
+    <b>"Machine gun firing coughs have never been this satisfying"</b><br />-/u/Spaels
+    <br />
     <br />
     <a href="https://concertcougher.vercel.app">View Demo</a>
     ·
     <a href="https://github.com/joshenx/concertcougher/issues">Report Bug</a>
     ·
     <a href="https://github.com/joshenx/concertcougher/issues">Request Feature</a>
+
   </p>
 </div>
 
@@ -72,7 +83,7 @@
 
 ## About The Project
 
-Concert Cougher is a game (250K views on reddit!) which allows you to cough all you like at a classical concert until someone shushes you. Concert Cougher gives all musicians a chance to come to terms with their trauma through exposure therapy.
+Concert Cougher is a game which allows you to cough all you like at a classical concert until someone shushes you. Concert Cougher gives all musicians a chance to come to terms with their trauma through exposure therapy.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
