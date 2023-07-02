@@ -133,7 +133,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
 - [x] Add main features
 - [x] Add intro screen
-- [] Add more game UI features (meter, particles)
+- [ ] Add more game UI features (meter, particles)
 - [x] Add easter egg sounds
 - [x] Add readme
 
